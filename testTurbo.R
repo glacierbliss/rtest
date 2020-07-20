@@ -130,11 +130,11 @@ ggplot(df, aes(monthweek, weekdayf, fill = VIX.Close)) +
 
 
 
+#line plot test
+library(tidyr)
 df2=data.frame(x=1:100,y1=runif(100),y2=runif(100),y3=runif(100),y4=rnorm(100),y5=rnorm(100))
 ggplot(df2,aes(x,y1))+
   geom_line()
-
-library(tidyr)
 
 df2 %>%
   gather(-x, key='var',value='value') %>%
@@ -144,11 +144,13 @@ df2 %>%
   
 mtcars %>%
   gather(-mpg, key = "var", value = "value") %>%
-  ggplot(aes(x = value, y = mpg)) +
+  ggplot(aes(x = value, y = mpg, color=mpg)) +
   geom_point() +
   stat_smooth() +
   facet_wrap(~ var, scales = "free") +
-  theme_bw()
+  theme_bw()+
+  scale_fill_gradientn(colours = Turbo(out.colors = length(mtcars)-1))
+#why is this just shades of blue, instead of Turbo?
 
 
 
