@@ -3,6 +3,7 @@
 # Code below copied from https://towardsdatascience.com/using-the-new-turbo-palette-from-google-in-r-af19b9424cc0
 #Minimal comments below due to documentation on websites above.
 
+#edit in RStudio
 
 # install.packages("colorspace")
 library(colorspace)
